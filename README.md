@@ -18,3 +18,12 @@ https://emmauscollege.github.io/informatica/game/
 - icon <br>
         http://www.iconarchive.com/show/android-lollipop-icons-by-dtafalonso/Play-Games-icon.html
 - ...
+
+  [x] speler laten bewegen 
+  [x] speler speed maken
+  [x] speler kan niet door de zijkanten heen
+  [x] speler kan niet door boven en onderkant heen
+  [] speler kan springen
+  [] tegenspeler maken
+  [] tegenspeler kan bewegen
+  

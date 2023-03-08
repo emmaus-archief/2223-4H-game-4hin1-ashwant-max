@@ -17,10 +17,14 @@
 /* ********************************************* */
 const SPELEN = 1;
 const GAMEOVER = 2;
-var spelStatus = SPELEN;
-
+var spelStatus = SPELEN;      
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
+var speed = 10;
+/*var speedomhoog = 10
+var speedomlaag = 10
+var speedrechts = 10
+var speedlinks= 10*/
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -31,7 +35,21 @@ var spelerY = 600; // y-positie van speler
  */
 var beweegAlles = function() {
   // speler
-
+if (keyIsDown(87) && spelerY > 25){
+  spelerY = spelerY - speed;
+}
+  if (keyIsDown(32) && spelerY > 25){
+  spelerY = spelerY - speed;
+}
+  if (keyIsDown(83) && spelerY < 695) {
+  spelerY = spelerY + speed;
+}
+  if (keyIsDown(65) && spelerX > 25){
+  spelerX = spelerX - speed;
+}
+  if (keyIsDown(68) && spelerX < 1255){
+  spelerX = spelerX + speed;
+}
   // vijand
 
   // kogel
@@ -56,7 +74,7 @@ var verwerkBotsing = function() {
  */
 var tekenAlles = function() {
   // achtergrond
-
+  background('blue');
   // vijand
 
   // kogel
@@ -66,6 +84,7 @@ var tekenAlles = function() {
   rect(spelerX - 25, spelerY - 25, 50, 50);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
+  
 
   // punten en health
 
@@ -94,7 +113,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  //background('blue');
 }
 
 /**
@@ -113,6 +132,6 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-
+    
   }
 }
