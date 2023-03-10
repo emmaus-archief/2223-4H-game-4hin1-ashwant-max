@@ -24,6 +24,8 @@ https://emmauscollege.github.io/informatica/game/
   [x] speler kan niet door de zijkanten heen
   [x] speler kan niet door boven en onderkant heen
   [] speler kan springen
-  [] tegenspeler maken
-  [] tegenspeler kan bewegen
+  [] tegenstander maken
+  [] tegenstander kan bewegen
+  [] tegenstander kan schade aanrichten
+  [] speler heeft levens
   
