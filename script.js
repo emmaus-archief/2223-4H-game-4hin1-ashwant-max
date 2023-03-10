@@ -21,6 +21,8 @@ var spelStatus = SPELEN;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var speed = 10;
+var Jump = true;
+var vorigeJump = true;
 /*var speedomhoog = 10
 var speedomlaag = 10
 var speedrechts = 10
@@ -38,7 +40,9 @@ var beweegAlles = function() {
 if (keyIsDown(87) && spelerY > 25){
   spelerY = spelerY - speed;
 }
-  if (keyIsDown(32) && spelerY > 25){
+  vorigeJump = Jump
+  Jump = keyIsDown(32)
+  if (vorigeJump === false && Jump === true){
   spelerY = spelerY - speed;
 }
   if (keyIsDown(83) && spelerY < 695) {
