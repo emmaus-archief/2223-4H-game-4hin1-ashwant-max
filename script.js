@@ -11,7 +11,7 @@
  */
 ///<reference path="p5.global-mode.d.ts" />
 "use strict"
-
+//vorigeJump === false && Jump === true (1 x klikje) vorigeJump = Jump 
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
@@ -23,6 +23,8 @@ var spelerY = 600; // y-positie van speler
 var speed = 10;
 var Jump = true;
 var vorigeJump = true;
+var jumpspeed = 10;
+var jumpspeler = false;
 /*var speedomhoog = 10
 var speedomlaag = 10
 var speedrechts = 10
@@ -40,10 +42,17 @@ var beweegAlles = function() {
 if (keyIsDown(87) && spelerY > 25){
   spelerY = spelerY - speed;
 }
-  vorigeJump = Jump
-  Jump = keyIsDown(32)
-  if (vorigeJump === false && Jump === true){
-  spelerY = spelerY - speed;
+         
+    if (Jump = keyIsDown(32)){
+      jumpspeler = true }
+  
+  if (jumpspeler === true) {
+  spelerY = spelerY - jumpspeed;
+    jumpspeed = jumpspeed - 0.2
+
+    if (spelerY > 695){
+      jumpspeed = false;
+    }
 }
   if (keyIsDown(83) && spelerY < 695) {
   spelerY = spelerY + speed;
