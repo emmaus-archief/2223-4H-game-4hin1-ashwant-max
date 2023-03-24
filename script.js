@@ -18,13 +18,18 @@
 const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;      
-var spelerX = 600; // x-positie van speler
-var spelerY = 600; // y-positie van speler
+var spelerX = 200; // x-positie van speler
+var spelerY = 700; // y-positie van speler
 var speed = 10;
-var Jump = true;
-var vorigeJump = true;
-var jumpspeed = 10;
+// var Jump = true; 
+// var vorigeJump = true;
+var jumpspeed = 6;
 var jumpspeler = false;
+var jumpstartingspeed = 8;
+var gravity = 0.2;
+var enemyY = 660;
+var enemyX = 800;
+var enemyheight = 200;
 /*var speedomhoog = 10
 var speedomlaag = 10
 var speedrechts = 10
@@ -39,23 +44,19 @@ var speedlinks= 10*/
  */
 var beweegAlles = function() {
   // speler
-if (keyIsDown(87) && spelerY > 25){
-  spelerY = spelerY - speed;
-}
          
-    if (Jump = keyIsDown(32)){
-      jumpspeler = true }
+    if (jumpspeler === false && keyIsDown(32)){
+      jumpspeler = true 
+      jumpspeed = jumpstartingspeed; 
+    }
   
   if (jumpspeler === true) {
   spelerY = spelerY - jumpspeed;
-    jumpspeed = jumpspeed - 0.2
-
+    jumpspeed = jumpspeed - gravity
+ v
     if (spelerY > 695){
-      jumpspeed = false;
+      jumpspeler = false;
     }
-}
-  if (keyIsDown(83) && spelerY < 695) {
-  spelerY = spelerY + speed;
 }
   if (keyIsDown(65) && spelerX > 25){
   spelerX = spelerX - speed;
@@ -65,6 +66,7 @@ if (keyIsDown(87) && spelerY > 25){
 }
   // vijand
 
+  
   // kogel
 };
 
@@ -89,7 +91,8 @@ var tekenAlles = function() {
   // achtergrond
   background('blue');
   // vijand
-
+ fill(255, 0, 0);
+ rect(enemyX, enemyY, 80, enemyheight);
   // kogel
 
   // speler
