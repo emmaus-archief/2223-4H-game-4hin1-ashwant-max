@@ -65,8 +65,11 @@ var beweegAlles = function() {
   spelerX = spelerX + speed;
 }
   // vijand
-
   
+  
+
+ /* if( enemyX === 0 && enemyX > 0) {
+    enemyX = enemyX + 8 } */
   // kogel
 };
 
@@ -158,4 +161,3 @@ function draw() {
   text("YOU DIED", 100, 100)
   }
 }
-

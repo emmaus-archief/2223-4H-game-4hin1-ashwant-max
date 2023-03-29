@@ -28,4 +28,12 @@ https://emmauscollege.github.io/informatica/game/
   [] tegenstander kan bewegen
   [x] tegenstander kan schade aanrichten
   [] speler heeft levens
+  [x] game over scherm
+  [] begin scherm
+  []
+
+
+
+  [] iets met arrays swa
+  
   
