@@ -23,9 +23,9 @@ https://emmauscollege.github.io/informatica/game/
   [x] speler speed maken
   [x] speler kan niet door de zijkanten heen
   [x] speler kan niet door boven en onderkant heen
-  [] speler kan springen
-  [] tegenstander maken
+  [x] speler kan springen
+  [x] tegenstander maken
   [] tegenstander kan bewegen
-  [] tegenstander kan schade aanrichten
+  [x] tegenstander kan schade aanrichten
   [] speler heeft levens
   
