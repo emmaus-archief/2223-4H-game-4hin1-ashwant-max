@@ -78,7 +78,8 @@ var beweegAlles = function() {
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
   if(spelerX - enemyX < 110 && spelerX - enemyX > -30 && spelerY - enemyY < 121 && spelerY - enemyY > -30 ) {
-    console.log("YOU DIED");
+    console.log("botsing");
+    spelStatus = GAMEOVER
   }
   // botsing kogel tegen vijand
 
@@ -115,6 +116,7 @@ var tekenAlles = function() {
  */
 var checkGameOver = function() {
   // check of HP 0 is , of tijd op is, of ...
+  
   return false;
 };
 
@@ -151,7 +153,9 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-
+  textSize(100)
+  fill("red")
+  text("YOU DIED", 100, 100)
   }
 }
 
