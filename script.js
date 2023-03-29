@@ -19,7 +19,7 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;      
 var spelerX = 200; // x-positie van speler
-var spelerY = 700; // y-positie van speler
+var spelerY = 700 // y-positie van speler
 var speed = 10;
 // var Jump = true; 
 // var vorigeJump = true;
@@ -27,9 +27,9 @@ var jumpspeed = 6;
 var jumpspeler = false;
 var jumpstartingspeed = 8;
 var gravity = 0.2;
-var enemyY = 660;
+var enemyY = 600;
 var enemyX = 800;
-var enemyheight = 200;
+var enemyheight = 121;
 /*var speedomhoog = 10
 var speedomlaag = 10
 var speedrechts = 10
@@ -53,7 +53,7 @@ var beweegAlles = function() {
   if (jumpspeler === true) {
   spelerY = spelerY - jumpspeed;
     jumpspeed = jumpspeed - gravity
- v
+  
     if (spelerY > 695){
       jumpspeler = false;
     }
@@ -77,7 +77,9 @@ var beweegAlles = function() {
  */
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
-
+  if(spelerX - enemyX < 110 && spelerX - enemyX > -30 && spelerY - enemyY < 121 && spelerY - enemyY > -30 ) {
+    console.log("YOU DIED");
+  }
   // botsing kogel tegen vijand
 
   // update punten en health
@@ -100,7 +102,8 @@ var tekenAlles = function() {
   rect(spelerX - 25, spelerY - 25, 50, 50);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
-  
+
+
 
   // punten en health
 
@@ -148,7 +151,7 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-    
+
   }
 }
 
