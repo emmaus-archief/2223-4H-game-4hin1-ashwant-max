@@ -30,6 +30,7 @@ var gravity = 0.2;
 var enemyY = 600;
 var enemyX = 800;
 var enemyheight = 121;
+var speed = 6
 /*var speedomhoog = 10
 var speedomlaag = 10
 var speedrechts = 10
@@ -65,7 +66,13 @@ var beweegAlles = function() {
   spelerX = spelerX + speed;
 }
   // vijand
-  
+  if (enemyX > 1300)
+    enemyX = 0
+    enemyX += speed;
+
+  if (speed < 0) {
+    speed += 1
+  }
   
 
  /* if( enemyX === 0 && enemyX > 0) {

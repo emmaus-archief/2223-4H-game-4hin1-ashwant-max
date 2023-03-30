@@ -25,7 +25,7 @@ https://emmauscollege.github.io/informatica/game/
   [x] speler kan niet door boven en onderkant heen
   [x] speler kan springen
   [x] tegenstander maken
-  [] tegenstander kan bewegen
+  [x] tegenstander kan bewegen
   [x] tegenstander kan schade aanrichten
   [] speler heeft levens
   [x] game over scherm
