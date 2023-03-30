@@ -17,6 +17,8 @@
 /* ********************************************* */
 const SPELEN = 1;
 const GAMEOVER = 2;
+//const UITLEG = 3;
+
 var spelStatus = SPELEN;      
 var spelerX = 200; // x-positie van speler
 var spelerY = 700 // y-positie van speler
@@ -31,6 +33,7 @@ var enemyY = 600;
 var enemyX = 800;
 var enemyheight = 121;
 var speed = 6
+
 /*var speedomhoog = 10
 var speedomlaag = 10
 var speedrechts = 10
@@ -67,14 +70,18 @@ var beweegAlles = function() {
 }
   // vijand
   if (enemyX > 1300)
-    enemyX = 0
+    enemyX = -100
     enemyX += speed;
 
   if (speed < 0) {
     speed += 1
   }
   
+/*var uitleg2 = function () {
+  background("green")
 
+}
+*/
  /* if( enemyX === 0 && enemyX > 0) {
     enemyX = enemyX + 8 } */
   // kogel
@@ -120,10 +127,12 @@ var tekenAlles = function() {
 
 };
 
+
 /**
  * return true als het gameover is
  * anders return false
  */
+
 var checkGameOver = function() {
   // check of HP 0 is , of tijd op is, of ...
   
@@ -152,6 +161,9 @@ function setup() {
  * de code in deze functie wordt 50 keer per seconde
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
+
+
+
 function draw() {
   if (spelStatus === SPELEN) {
     beweegAlles();
@@ -160,6 +172,17 @@ function draw() {
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
+  
+
+   /* if (spelStatus === UITLEG) {
+    console.log("uitleg");
+    uitleg2();
+    if (keyIsDown(13)) {  
+      spelStatus = SPELEN;
+    }
+  }
+  */
+    
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
