@@ -17,9 +17,9 @@
 /* ********************************************* */
 const SPELEN = 1;
 const GAMEOVER = 2;
-//const UITLEG = 3;
+const UITLEG = 3;
 
-var spelStatus = SPELEN;      
+var spelStatus = UITLEG;
 var spelerX = 200; // x-positie van speler
 var spelerY = 700 // y-positie van speler
 var speed = 10;
@@ -48,42 +48,39 @@ var speedlinks= 10*/
  */
 var beweegAlles = function() {
   // speler
-         
-    if (jumpspeler === false && keyIsDown(32)){
-      jumpspeler = true 
-      jumpspeed = jumpstartingspeed; 
-    }
-  
+
+  if (jumpspeler === false && keyIsDown(32)) {
+    jumpspeler = true
+    jumpspeed = jumpstartingspeed;
+  }
+
   if (jumpspeler === true) {
-  spelerY = spelerY - jumpspeed;
+    spelerY = spelerY - jumpspeed;
     jumpspeed = jumpspeed - gravity
-  
-    if (spelerY > 695){
+
+    if (spelerY > 695) {
       jumpspeler = false;
     }
-}
-  if (keyIsDown(65) && spelerX > 25){
-  spelerX = spelerX - speed;
-}
-  if (keyIsDown(68) && spelerX < 1255){
-  spelerX = spelerX + speed;
-}
+  }
+  if (keyIsDown(65) && spelerX > 25) {
+    spelerX = spelerX - speed;
+  }
+  if (keyIsDown(68) && spelerX < 1255) {
+    spelerX = spelerX + speed;
+  }
   // vijand
   if (enemyX > 1300)
     enemyX = -100
-    enemyX += speed;
+  enemyX += speed;
 
   if (speed < 0) {
     speed += 1
   }
-  
-/*var uitleg2 = function () {
-  background("green")
 
-}
-*/
- /* if( enemyX === 0 && enemyX > 0) {
-    enemyX = enemyX + 8 } */
+  
+
+  /* if( enemyX === 0 && enemyX > 0) {
+     enemyX = enemyX + 8 } */
   // kogel
 };
 
@@ -94,7 +91,7 @@ var beweegAlles = function() {
  */
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
-  if(spelerX - enemyX < 110 && spelerX - enemyX > -30 && spelerY - enemyY < 121 && spelerY - enemyY > -30 ) {
+  if (spelerX - enemyX < 110 && spelerX - enemyX > -30 && spelerY - enemyY < 121 && spelerY - enemyY > -30) {
     console.log("botsing");
     spelStatus = GAMEOVER
   }
@@ -111,8 +108,8 @@ var tekenAlles = function() {
   // achtergrond
   background('blue');
   // vijand
- fill(255, 0, 0);
- rect(enemyX, enemyY, 80, enemyheight);
+  fill(255, 0, 0);
+  rect(enemyX, enemyY, 80, enemyheight);
   // kogel
 
   // speler
@@ -135,7 +132,7 @@ var tekenAlles = function() {
 
 var checkGameOver = function() {
   // check of HP 0 is , of tijd op is, of ...
-  
+
   return false;
 };
 
@@ -161,8 +158,24 @@ function setup() {
  * de code in deze functie wordt 50 keer per seconde
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
-
-
+var reset = function(){
+  spelerX = 200;
+  spelerY= 700;
+  enemyX = 800
+  enemyY = 600
+}
+var gameover2 = function(){
+  textSize(100)
+    fill("red")
+    text("GHET GUD", 100, 100)
+    text("klick spacy to leturn", 100, 200)
+}
+ var uitleg2 = function() {
+    background("green")
+   textSize(101)
+   fill("red")
+   text("groen" ,100,100)
+}
 
 function draw() {
   if (spelStatus === SPELEN) {
@@ -172,22 +185,24 @@ function draw() {
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
-  
+  }
 
-   /* if (spelStatus === UITLEG) {
+  if (spelStatus === UITLEG) {
     console.log("uitleg");
     uitleg2();
-    if (keyIsDown(13)) {  
+    if (keyIsDown(13)) {
       spelStatus = SPELEN;
     }
-  }
-  */
-    
+
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-  textSize(100)
-  fill("red")
-  text("YOU DIED", 100, 100)
+    gameover2();
+    reset();
+    if (keyIsDown(32)){
+      spelStatus = UITLEG;
+    }
   }
+
+ 
 }
