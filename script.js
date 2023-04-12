@@ -34,6 +34,7 @@ var enemyX = 800;
 var enemyheight = 121;
 var speed2 = 2;
 var speed3 = 4;
+var text1 = ["ghet gud", "noeb", "u zuck", "uiL boso + radio"]
 
 /*var speedomhoog = 10
 var speedomlaag = 10
@@ -170,9 +171,21 @@ var reset = function(){
 }
 var gameover2 = function(){
   textSize(100)
-    fill("red")
-    text("GHET GUD", 100, 100)
     text("klick spacy to leturn", 100, 200)
+  net = nu
+  nu = GAMEOVER;
+  
+  if(net === false && nu === true){
+    textSize(100)
+    fill("red")
+       var i = 0;
+  i = floor(random(0,4));
+    text(text1[i], 100, 100)
+  }
+    
+  
+  
+   
 }
  var uitleg2 = function() {
     background("green")
@@ -186,7 +199,9 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
+  
     if (checkGameOver()) {
+
       spelStatus = GAMEOVER;
     }
   }
@@ -203,6 +218,7 @@ function draw() {
     // teken game-over scherm
     gameover2();
     reset();
+    
     if (keyIsDown(32)){
       spelStatus = UITLEG;
     }
