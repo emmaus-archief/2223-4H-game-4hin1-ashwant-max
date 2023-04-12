@@ -69,6 +69,11 @@ var beweegAlles = function() {
   if (keyIsDown(68) && spelerX < 1255) {
     spelerX = spelerX + speed;
   }
+
+  if (keyIsDown(70)) {
+  spelStatus = GAMEOVER;
+  
+    }
   // vijand
   enemyX += speed2 * speed3;
   if (enemyX <= 0 || enemyX >= 1200) {
