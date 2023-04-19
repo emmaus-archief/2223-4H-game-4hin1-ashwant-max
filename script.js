@@ -34,7 +34,9 @@ var enemyX = 800;
 var enemyheight = 121;
 var speed2 = 2;
 var speed3 = 4;
-
+var leven = 3;
+var imune = 0;
+var bots = spelerX - enemyX < 110 && spelerX - enemyX > -30 && spelerY - enemyY < 121 && spelerY - enemyY > -30;
 /*var speedomhoog = 10
 var speedomlaag = 10
 var speedrechts = 10
@@ -97,12 +99,23 @@ var verwerkBotsing = function() {
   // botsing speler tegen vijand
   if (spelerX - enemyX < 110 && spelerX - enemyX > -30 && spelerY - enemyY < 121 && spelerY - enemyY > -30) {
     console.log("botsing");
-    spelStatus = GAMEOVER
+    leven = leven - 1;
+    
   }
-  // botsing kogel tegen vijand
+  // imune
+if (imune > 0) {
+  imune = imune - 1;
+}
+ else if (spelerX - enemyX < 110 && spelerX - enemyX > -30 && spelerY - enemyY < 121 && spelerY - enemyY > -30) {
+  leven = leven - 1;
+  imune = 3 * frameRate;
+}
+  
 
   // update punten en health
-
+if (leven <= 0) {
+  spelStatus = GAMEOVER;
+ }
 };
 
 /**
@@ -165,13 +178,14 @@ function setup() {
 var reset = function(){
   spelerX = 200;
   spelerY= 700;
-  enemyX = 800
-  enemyY = 600
+  enemyX = 800;
+  enemyY = 600;
+  leven = 3;
 }
 var gameover2 = function(){
   textSize(100)
     fill("red")
-    text("GHET GUD", 100, 100)
+    text("GHET GUD", 100, 100);
     text("klick spacy to leturn", 100, 200)
 }
  var uitleg2 = function() {
