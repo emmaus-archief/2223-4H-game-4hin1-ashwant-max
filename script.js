@@ -21,7 +21,7 @@ const UITLEG = 3;
 
 var spelStatus = UITLEG;
 var spelerX = 200; // x-positie van speler
-var spelerY = 700 // y-positie van speler
+var spelerY = 665 // y-positie van speler
 var speed = 10;
 // var Jump = true; 
 // var vorigeJump = true;
@@ -34,9 +34,15 @@ var enemyX = 800;
 var enemyheight = 121;
 var speed2 = 2;
 var speed3 = 4;
-var leven = 3;
-var imune = 0;
-var bots = spelerX - enemyX < 110 && spelerX - enemyX > -30 && spelerY - enemyY < 121 && spelerY - enemyY > -30;
+var score = true;
+var imguitleg;
+var imgspeel;
+var imgplayer;
+var mariogif;
+var enemygif;
+
+
+
 /*var speedomhoog = 10
 var speedomlaag = 10
 var speedrechts = 10
@@ -97,25 +103,27 @@ var beweegAlles = function() {
  */
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
-  if (spelerX - enemyX < 110 && spelerX - enemyX > -30 && spelerY - enemyY < 121 && spelerY - enemyY > -30) {
+  if (spelerX - enemyX < 110 && spelerX - enemyX > +65 && spelerY - enemyY < 121 && spelerY - enemyY > -30) {
     console.log("botsing");
-    leven = leven - 1;
+    spelStatus = GAMEOVER;
     
-  }
-  // imune
-if (imune > 0) {
-  imune = imune - 1;
-}
- else if (spelerX - enemyX < 110 && spelerX - enemyX > -30 && spelerY - enemyY < 121 && spelerY - enemyY > -30) {
-  leven = leven - 1;
-  imune = 3 * frameRate;
-}
   
+  }
+  
+  // botsing kogel tegen vijand
 
   // update punten en health
-if (leven <= 0) {
-  spelStatus = GAMEOVER;
- }
+  
+  
+
+};
+
+function preload() {
+  imguitleg = loadImage('plaatjebeginschrm.png');
+  imgspeel = loadImage('prachtplaatje.jpeg');
+  mariogif = loadImage('mario.gif');
+  enemygif = loadImage('enemy.gif');
+  
 };
 
 /**
@@ -123,17 +131,19 @@ if (leven <= 0) {
  */
 var tekenAlles = function() {
   // achtergrond
-  background('blue');
+  background(imgspeel);
+  //text(score, 30,100)
   // vijand
   fill(255, 0, 0);
-  rect(enemyX, enemyY, 80, enemyheight);
+  image(enemygif, enemyX, enemyY, 300, enemyheight)
+  //rect(enemyX, enemyY, 80, enemyheight);
   // kogel
 
   // speler
-  fill("white");
-  rect(spelerX - 25, spelerY - 25, 50, 50);
+
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
+  image(mariogif, spelerX - 25, spelerY - 25, 80, 80)
 
 
 
@@ -166,8 +176,7 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
-  // Kleur de achtergrond blauw, zodat je het kunt zien
-  //background('blue');
+ 
 }
 
 /**
@@ -177,22 +186,20 @@ function setup() {
  */
 var reset = function(){
   spelerX = 200;
-  spelerY= 700;
-  enemyX = 800;
-  enemyY = 600;
-  leven = 3;
+  spelerY= 665;
+  enemyX = 800
+  enemyY = 600
+  
 }
 var gameover2 = function(){
   textSize(100)
     fill("red")
-    text("GHET GUD", 100, 100);
+    text("GHET GUD", 100, 100) 
     text("klick spacy to leturn", 100, 200)
 }
  var uitleg2 = function() {
-    background("green")
+    background(imguitleg)
    textSize(101)
-   fill("red")
-   text("groen" ,100,100)
 }
 
 function draw() {
@@ -224,3 +231,4 @@ function draw() {
 
  
 }
+
