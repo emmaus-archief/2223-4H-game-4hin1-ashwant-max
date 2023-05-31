@@ -34,12 +34,13 @@ var enemyX = 800;
 var enemyheight = 121;
 var speed2 = 2;
 var speed3 = 4;
-var score = true;
+var score = 0;
 var imguitleg;
 var imgspeel;
 var imgplayer;
 var mariogif;
 var enemygif;
+var doodimg;
 
 
 
@@ -87,7 +88,14 @@ var beweegAlles = function() {
   if (enemyX <= -100 || enemyX >= 1100) {
     speed2 = -speed2;
   }
-  
+
+  if(score >= 10) {
+    speed3 = speed3 + 1
+  }
+
+  if(score >= 11) {
+    speed3 = 4
+  }
 
   
 
@@ -113,6 +121,8 @@ var verwerkBotsing = function() {
   // botsing kogel tegen vijand
 
   // update punten en health
+
+    score = score +0.02
   
   
 
@@ -123,6 +133,7 @@ function preload() {
   imgspeel = loadImage('prachtplaatje.jpeg');
   mariogif = loadImage('mario.gif');
   enemygif = loadImage('enemy.gif');
+  doodimg = loadImage('dood.png')
   
 };
 
@@ -148,7 +159,7 @@ var tekenAlles = function() {
 
 
   // punten en health
-
+text(floor(score), 100,100)
 };
 
 
@@ -187,15 +198,19 @@ function setup() {
 var reset = function(){
   spelerX = 200;
   spelerY= 665;
-  enemyX = 800
-  enemyY = 600
+  enemyX = 800;
+  enemyY = 600;
+  score = 0;
+  speed3 = 4;
   
 }
 var gameover2 = function(){
-  textSize(100)
+  image(doodimg, 60, -250, 1200, 1200)
+  /*textSize(100)
     fill("red")
     text("GHET GUD", 100, 100) 
-    text("klick spacy to leturn", 100, 200)
+    text("klick spacy to leturn", 100, 200)*/
+  
 }
  var uitleg2 = function() {
     background(imguitleg)
