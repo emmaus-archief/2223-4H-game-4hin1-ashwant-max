@@ -67,7 +67,7 @@ var beweegAlles = function() {
     spelerY = spelerY - jumpspeed;
     jumpspeed = jumpspeed - gravity
 
-    if (spelerY > 695) {
+    if (spelerY >= 665) {
       jumpspeler = false;
     }
   }
@@ -84,7 +84,7 @@ var beweegAlles = function() {
     }
   // vijand
   enemyX += speed2 * speed3;
-  if (enemyX <= 0 || enemyX >= 1200) {
+  if (enemyX <= -100 || enemyX >= 1100) {
     speed2 = -speed2;
   }
   
@@ -103,7 +103,7 @@ var beweegAlles = function() {
  */
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
-  if (spelerX - enemyX < 110 && spelerX - enemyX > +65 && spelerY - enemyY < 121 && spelerY - enemyY > -30) {
+  if (spelerX - enemyX < 190 && spelerX - enemyX > +59 && spelerY - enemyY < 85 && spelerY - enemyY > -30) {
     console.log("botsing");
     spelStatus = GAMEOVER;
     
@@ -231,4 +231,3 @@ function draw() {
 
  
 }
-
