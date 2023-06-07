@@ -21,7 +21,7 @@ const UITLEG = 3;
 
 var spelStatus = UITLEG;
 var spelerX = 200; // x-positie van speler
-var spelerY = 665 // y-positie van speler
+var spelerY = 865 // y-positie van speler
 var speed = 10;
 // var Jump = true; 
 // var vorigeJump = true;
@@ -89,7 +89,27 @@ var beweegAlles = function() {
     speed2 = -speed2;
   }
 
-  if(score >= 10) {
+  /*for(var i = 0; i<10; i = i+5){
+    if (score >= i){
+      speed3 = speed3+1
+    }
+  }
+
+  for(var j = 0; j<10; j= (j+5)+1){
+    if(score >= j){
+      speed3 = 4
+    }
+  }*/
+  
+  if(score >= 5) {
+    speed3 = speed3 + 1
+  }
+
+  if(score >= 6) {
+    speed3 = 4
+  }
+
+  /*if(score >= 10) {
     speed3 = speed3 + 1
   }
 
@@ -97,7 +117,29 @@ var beweegAlles = function() {
     speed3 = 4
   }
 
-  
+  if(score >= 15) {
+    speed3 = speed3 + 1
+  }
+
+  if(score >= 16) {
+    speed3 = 4
+  }
+
+  if(score >= 20) {
+    speed3 = speed3 + 1
+  }
+
+  if(score >= 21) {
+    speed3 = 4
+  }
+
+  if(score >= 25) {
+    speed3 = speed3 + 1
+  }
+
+  if(score >= 26) {
+    speed3 = 4
+  }*/
 
   /* if( enemyX === 0 && enemyX > 0) {
      enemyX = enemyX + 8 } */
@@ -205,7 +247,10 @@ var reset = function(){
   
 }
 var gameover2 = function(){
-  image(doodimg, 60, -250, 1200, 1200)
+  background('green');
+  image(doodimg, 60, -250, 1200, 1200);
+  text(floor(score),590,200);
+  text('space to return' ,350,500);
   /*textSize(100)
     fill("red")
     text("GHET GUD", 100, 100) 
@@ -213,7 +258,10 @@ var gameover2 = function(){
   
 }
  var uitleg2 = function() {
-    background(imguitleg)
+   background('red')
+   text('Press Enter to play',100,100)
+   
+    //background(imguitleg)
    textSize(101)
 }
 
@@ -230,6 +278,7 @@ function draw() {
   if (spelStatus === UITLEG) {
     console.log("uitleg");
     uitleg2();
+    reset();
     if (keyIsDown(13)) {
       spelStatus = SPELEN;
     }
@@ -238,7 +287,7 @@ function draw() {
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
     gameover2();
-    reset();
+    //reset();
     if (keyIsDown(32)){
       spelStatus = UITLEG;
     }
