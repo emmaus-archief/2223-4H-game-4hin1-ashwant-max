@@ -27,9 +27,8 @@ https://emmauscollege.github.io/informatica/game/
   [x] tegenstander maken
   [x] tegenstander kan bewegen
   [x] tegenstander kan schade aanrichten
-  [] speler heeft levens
   [x] game over scherm
-  [] begin scherm
+  [x] begin scherm
   []
 
 

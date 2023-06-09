@@ -89,6 +89,9 @@ var beweegAlles = function() {
     speed2 = -speed2;
   }
 
+  if (score >= 10) {
+    enemyX += speed2 * speed3 ;
+   }
   /*for(var i = 0; i<10; i = i+5){
     if (score >= i){
       speed3 = speed3+1
@@ -258,10 +261,7 @@ var gameover2 = function(){
   
 }
  var uitleg2 = function() {
-   background('red')
-   text('Press Enter to play',100,100)
-   
-    //background(imguitleg)
+    background(imguitleg)
    textSize(101)
 }
 
